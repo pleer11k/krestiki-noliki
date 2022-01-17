@@ -115,6 +115,19 @@ function DrawLine(result) {
     return [rotation[result], positionSide[result], positionTop[result], height];
 }
 
+document.addEventListener('mousemove', function(e) {
+    if (e.y >= figureSelection.getBoundingClientRect().top && e.y <= figureSelection.getBoundingClientRect().bottom && e.x >= figureSelection.getBoundingClientRect().left && e.x <= figureSelection.getBoundingClientRect().right) {
+
+        figureSelection.style.backgroundColor = "rgba(0, 0, 0, 0.6)";
+        figureSelection.style.opacity = "1";
+        selectionContent.style.opacity = "1";
+    } else {
+        figureSelection.style.backgroundColor = "rgba(0, 0, 0, 0)";
+        figureSelection.style.opacity = "0";
+        selectionContent.style.opacity = "0";
+    }
+});
+
 figure.addEventListener('click', function() { //toggle figures by click
     figureIndex += 1;
     figureIndex %= 2;
